@@ -1,4 +1,11 @@
 const anagrammes = (stringA, stringB) => {
+  
+  const regex = /([A-Za-z])\w+/g
+  const sortedA = stringA.split('').sort().join('').toLowerCase().match((regex) || []).join('')
+  const sortedB = stringB.split('').sort().join('').toLowerCase().match((regex) || []).join('')
+  console.log(sortedA, sortedB)
+  return sortedA === sortedB
+  
   /**
    * stringA est égale à stringB si et seulement s'ils partagent les mêmes
    * caractères alphabétiques dans la même quantité.
@@ -15,6 +22,24 @@ const anagrammes = (stringA, stringB) => {
 
 
 class Stack {
+  constructor () {
+    this.data = []
+    this.index = 0
+  }
+
+  push (element) {
+    this.data[this.index] = element
+    this.index++
+  }
+
+  pop () {
+    this.index--
+    return this.data[this.index]
+  }
+
+  peek () {
+    return this.data[this.index -1]
+  }
 /**
  * Créer une structure d'empilement. La structure doit être
  * une classe contenant les méthodes :
@@ -36,6 +61,17 @@ class Stack {
 
 
 const fizzBuzz = (n) => {
+  for (let i = 1; i <= n; i++) {
+    if (i % 3 == 0 && i != 15) {
+        console.log('fizz')
+    } else if (i % 5 == 0 && i != 15) {
+        console.log('buzz')
+    } else if (i % 3 == 0 && i % 5 == 0) {
+      console.log('fizzbuzz')
+    } else {
+      console.log(i)
+    }
+  }
 /**
  * Affiche les nombres de 1 à n, en remplaçant les multiples de 3 par fizz et 
  * les multiples de 5 par buzz
@@ -53,23 +89,60 @@ const fizzBuzz = (n) => {
 };
 
 const spirale = (n) => {
-/**
- * Retourne une matrice spirale de taille n x n.
- *
- * Exemples :
- *
- * matrix(2) = [[1, 2],
- *              [4, 3]]
- *
- * matrix(3) = [[1, 2, 3],
- *              [8, 9, 4],
- *              [7, 6, 5]]
- *
- * matrix(4) = [[1,   2,  3, 4],
- *              [12, 13, 14, 5],
- *              [11, 16, 15, 6],
- *              [10,  9,  8, 7]]
- */
+  
+  let result = new Array(n).fill().map(() => new Array(n).fill('')); // create empty n x n array
+  let counter = 1;
+  let startCol = 0;
+  let endCol = n - 1;
+  let startRow = 0;
+  let endRow = n - 1;
+  while (startCol <= endCol && startRow <= endRow) {
+      for (let i = startCol; i <= endCol; i++) {
+          result[startRow][i] = counter;
+          counter++;
+      }
+      startRow++;
+      for (let j = startRow; j <= endRow; j++) {
+          result[j][endCol] = counter;
+          counter++;
+      }
+
+      endCol--;
+
+      for (let i = endCol; i >= startCol; i--) {
+          result[endRow][i] = counter;
+          counter++;
+      }
+
+      endRow--;
+      for (let i = endRow; i >= startRow; i--) {
+          result[i][startCol] = counter;
+          counter++;
+      }
+
+      startCol++;
+
+  }
+
+  return result;
+
+  /**
+   * Retourne une matrice spirale de taille n x n.
+   *
+   * Exemples :
+   *
+   * matrix(2) = [[1, 2],
+   *              [4, 3]]
+   *
+   * matrix(3) = [[1, 2, 3],
+   *              [8, 9, 4],
+   *              [7, 6, 5]]
+   *
+   * matrix(4) = [[1,   2,  3, 4],
+   *              [12, 13, 14, 5],
+   *              [11, 16, 15, 6],
+   *              [10,  9,  8, 7]]
+   */
 
 };
 
