@@ -148,6 +148,29 @@ const spirale = (n) => {
 
 
 const puissance4 = (grid) => {
+  
+   const checkVictory = (array) => {
+        if (array.join('').includes('1111')) return 1
+        if (array.join('').includes('2222')) return 2
+        return 0
+    }
+
+    let found = 0
+    grid.forEach((row) => {
+        if (!found) {
+            found = checkVictory(row)
+        }
+    })
+    grid[0].forEach((cell, x) => {
+        if (!found) {
+            let col = []
+            grid.forEach((row) => {
+                col.push(row[x])
+            })
+            found = checkVictory(col)
+        }
+    })
+    return found
 /**
  * Vérifie si un joueur a gagné au puissance 4,
  * c'est-à-dire s'il a 4 jetons contigus en diagonales, lignes ou colonnes.
