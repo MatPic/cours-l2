@@ -1,6 +1,27 @@
 .toggled {
-  border: 1px solid red;
+  background-color: cyan;
+  height: 100px;
+  width: 300px;
+  border-radius: 20px;
+  border: none;
+  margin-top: 50px;
+  font-size: larger;
 }
+
 .untoggled {
-  border: 1px solid blue;
+  background-color: gray;
+  height: 100px;
+  width: 300px;
+  border-radius: 20px;
+  border: none;
+  margin-top: 50px;
+  font-size: larger;
+}
+
+.untoggled:focus {
+  outline: none;
+}
+
+.toggled:focus {
+  outline: none;
 }
