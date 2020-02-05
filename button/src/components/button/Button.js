@@ -20,7 +20,7 @@ class Button extends React.Component {
          data-testid="button"
          onClick= { this.handleClick }
       >
-      {this.props.children ? this.props.children : "Click Me ! (Epico)"}
+      {this.props.children ? this.props.children : "Add text!"}
       </button>);
   }
 

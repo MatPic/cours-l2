@@ -22,6 +22,14 @@
   outline: none;
 }
 
+.untoggled:hover {
+  background-color: #bbb;
+}
+
 .toggled:focus {
   outline: none;
+}
+
+.toggled:hover {
+  background-color: blue;
 }
