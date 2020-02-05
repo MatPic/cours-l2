@@ -19,7 +19,13 @@ afterEach( () => {
 describe('App Layout materials', () => {
     it('renders without crashing', () => {
       act( () => {
-        render(<App/>, container);
-      });
-    });
+        render(<App/>, container)
+      })
+    })
+    
+    it('', () => {
+      act( () => {
+        render()
+      })
+    })
 })
