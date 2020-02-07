@@ -25,13 +25,7 @@ class Timer extends React.Component {
     if (this.state.seconds <= 60) {
       return (
         <div data-testid="timer">
-          {this.state.seconds} secondes
-        </div>
-      );
-    } else {
-      return (
-        <div data-testid="timer">
-          1min et {this.state.seconds-59} secondes
+          {this.state.seconds}
         </div>
       );
     }
