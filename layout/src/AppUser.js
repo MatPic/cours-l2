@@ -3,18 +3,18 @@ import data from './user.js';
 
 class Appuser extends React.Component {
     
-    constructor (props) {
-        super (props)
-        this.user = props.userData
-    }
+  constructor (props) {
+      super (props)
+      this.user = props.userData
+  }
     
   render() {
     return (
       <div className="App">
         <div className="card m-5">
-          <img className="card-img-top" src={this.user.picture.large} alt="Card image cap" />
+          <img data-testid="img" className="card-img-top" src={this.user.picture.large} alt="Card image cap" />
           <div className="card-body">
-            <h5 className="card-title">{`${this.user.name.first} ${this.user.name.last}`}</h5>
+            <h5 data-testid="name" className="card-title">{`${this.user.name.first}${this.user.name.last}`}</h5>
             <p className="card-text">
               Age : {this.user.dob.age} years old<br/>
               Email : {this.user.email} <br/> 
